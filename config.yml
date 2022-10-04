@@ -1,0 +1,35 @@
+# ------------------------
+# Matrix Config
+# ------------------------
+
+# Homeserver of the account
+homeserver: https://your-server.com
+
+# Login credentials
+username: '@rss:your-server.com'
+password: 'my-secret-password'
+
+
+# ------------------------
+# SQLite config
+# ------------------------
+
+# File path of the database
+database: ./database.db
+
+
+# ------------------------
+# RSS config
+# ------------------------
+
+# How many minutes the RSS feed wait on average before refreshing again
+update_interval_minutes: 60
+
+
+# ------------------------
+# Other
+# ------------------------
+
+# DEBUG mode during development
+debug_mode: false
+

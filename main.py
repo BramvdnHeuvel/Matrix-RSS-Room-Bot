@@ -1,13 +1,19 @@
 import asyncio
 
 import aiosqlite
-from nio import AsyncClient, Event, InviteEvent, MatrixInvitedRoom, RoomMessageText
+from nio import AsyncClient, InviteEvent, RoomMessageText
+import yaml
 
 from src import db, msg
 
-HOMESERVER = 'https://your-server.com'
-USERNAME   = '@rss:your-server.com'
-PASSWORD   = 'my-secret-password'
+
+with open('config.yaml', 'r', encoding='utf-8') as fp:
+    CONFIG = yaml.safe_load(fp)
+
+HOMESERVER = CONFIG['homeserver']
+USERNAME   = CONFIG['username']
+PASSWORD   = CONFIG['password']
+
 
 async def main():
     client = AsyncClient(HOMESERVER, USERNAME)

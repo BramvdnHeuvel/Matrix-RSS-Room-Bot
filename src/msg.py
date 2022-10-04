@@ -8,12 +8,18 @@ import aiosqlite
 from nio import ( AsyncClient, Event, MatrixRoom, RoomCreateError
                 , RoomMessageText , RoomPreset, RoomVisibility
                 )
+import yaml
 
 from src import db, parser
 
-DATABASE = 'database.db'
-UPDATE_INTERVAL = 60 * 60
-DEBUG_MODE = False
+
+with open('config.yaml', 'r', encoding='utf-8') as fp:
+    CONFIG = yaml.safe_load(fp)
+
+DATABASE = CONFIG['database']
+UPDATE_INTERVAL = CONFIG['update_interval_minutes'] * 60
+DEBUG_MODE = CONFIG['debug_mode']
+
 
 async def track_rss_feed(client : AsyncClient, url : str) -> None:
     """
