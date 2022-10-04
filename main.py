@@ -1,4 +1,5 @@
 import asyncio
+import os
 
 import aiosqlite
 from nio import AsyncClient, InviteEvent, RoomMessageText
@@ -7,7 +8,7 @@ import yaml
 from src import db, msg
 
 
-with open('config.yaml', 'r', encoding='utf-8') as fp:
+with open(os.getenv('CONFIG_FILE', 'config.yaml'), 'r', encoding='utf-8') as fp:
     CONFIG = yaml.safe_load(fp)
 
 HOMESERVER = CONFIG['homeserver']

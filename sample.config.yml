@@ -17,6 +17,11 @@ password: 'my-secret-password'
 # File path of the database
 database: ./database.db
 
+# # Recommended option while running directly from a directory
+# database: ./database.db
+# # Recommended option while running inside a Docker container
+# database: /database.db
+
 
 # ------------------------
 # RSS config

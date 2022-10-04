@@ -1,5 +1,6 @@
 import asyncio
 import datetime
+import os
 import random
 import urllib.parse as parse
 
@@ -13,7 +14,7 @@ import yaml
 from src import db, parser
 
 
-with open('config.yaml', 'r', encoding='utf-8') as fp:
+with open(os.getenv('CONFIG_FILE', 'config.yaml'), 'r', encoding='utf-8') as fp:
     CONFIG = yaml.safe_load(fp)
 
 DATABASE = CONFIG['database']
